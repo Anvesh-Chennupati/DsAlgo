@@ -4,6 +4,13 @@
 
 using namespace std;
 
+void printArray(int arr[],int n){
+cout<<"\n";
+for(int i =0;i<n;i++){
+    cout<<" "<<arr[i];
+}
+}
+
 void swap(int *xp, int *yp)
 {
     int temp = *xp;
@@ -18,18 +25,11 @@ for(i=0;i<n-1;i++){
 
     min_ind = i;
 
-    for(j =i+1; j<n; j++)
-
+    for(j =i+1; j<n; j++){
         if(arr[j] < arr[min_ind])
-            min_ind = j;
-            swap(&arr[min_ind],&arr[i]);
+            min_ind = j;}   
+        swap(&arr[min_ind],&arr[i]);
 
-}
-}
-void printArray(int arr[],int n){
-cout<<"\n";
-for(int i =0;i<n;i++){
-    cout<<" "<<arr[i];
 }
 }
 

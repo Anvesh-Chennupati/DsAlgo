@@ -21,6 +21,6 @@ int main() {
     int c[][5] = {1, 2, 3, 4, 5, 6, 7,8,9,10,11,12};
     printArray(c);
     cout << "Example IV:" << endl;
-    int d[][5] = {{1, 2, 3, 4}, {5, 6}, {7}};
+    int d[][6] = {{1, 2, 3, 4,5}, {5, 6}, {7}};
     printArray(d);
 }

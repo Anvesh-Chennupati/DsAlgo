@@ -4,6 +4,12 @@
 using namespace std;
 
 int main(){
-    vector< vector<int> > v1;
+    vector< vector<int> > v1 { {1,2,3},{4,5,6},{7,8,9}};
+    for(int i =0; i<v1.size(); i++){
+        cout<<"\n";
+        for(int j=0;j<v1[i].size(); j++){
+            cout<<" "<<v1[i][j];
+        }
+    }
     
 }

@@ -56,7 +56,7 @@ void MergeSort(int arr[],int l,int r){
 
 
 int main(){
-    int arr[] = {9,8,7,6,5,4,3,2,1};
+    int arr[] = {3,2,1};
     cout<<"\n Unsorted Array: ";
     int n = sizeof(arr)/sizeof(arr[0]);
     printArray(arr,n);

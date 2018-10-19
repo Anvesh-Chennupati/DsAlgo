@@ -10,6 +10,7 @@ public class Solution {
       int n = in.nextInt();
       int m = in.nextInt();
       System.out.println("Case #" + i + ": " + (n + m) + " " + (n * m));
+
     }
   }
 }

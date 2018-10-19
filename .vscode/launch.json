@@ -2,6 +2,16 @@
     "configurations": [
         {
             "type": "java",
+            "name": "CodeLens (Launch) - DiningPhilosophers",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "console": "internalConsole",
+            "stopOnEntry": false,
+            "mainClass": "DiningPhilosophers",
+            "args": ""
+        },
+        {
+            "type": "java",
             "name": "CodeLens (Launch) - MergeSort3Way",
             "request": "launch",
             "cwd": "${workspaceFolder}",

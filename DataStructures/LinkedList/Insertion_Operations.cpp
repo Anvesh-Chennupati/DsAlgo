@@ -200,7 +200,7 @@ delb:                                   struct node * nex = new node();
                                                         disp = disp->next;
                                                 }
                                         }
-                                        cout<<"\n Enter the element you want to delete";
+                                        cout<<"\n Enter the el1ement you want to delete";
                                         int elem;
                                         cin>>elem;
                                         node * tra = new node();
@@ -211,11 +211,11 @@ delb:                                   struct node * nex = new node();
                                                 goto delb;
                                         }
                                         else{
-                                                while(tra->next->data!=elem && tra->next!= NULL) {
+                                                while(tra->data!=elem && tra->next!= NULL) {
                                                         prev = tra;
                                                         tra = tra->next;
                                                 }
-                                                prev->next = tra->next->next;
+                                                prev->next = tra->next;
                                         }
 
 

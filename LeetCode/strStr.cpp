@@ -25,7 +25,9 @@ int strStr(string haystack, string needle) {
     			i++;
     			j++;
     		}
-    	}
+        }
+        for(int i =0;i<nsize;i++)
+            cout<<" "<<table[i];
     	//matching
     	for (int i = 0, match_pos = 0; i < hsize;){
     		if (haystack[i] == needle[match_pos]){
@@ -50,8 +52,8 @@ int strStr(string haystack, string needle) {
     	return -1;
     }
 int main(){
-    string haystack = "hello";
-    string needle = "ll";
+    string haystack = "aaaaaaab";
+    string needle = "aaab";
     int loc = strStr(haystack,needle);
-    cout<<loc;
+    cout<<"\n"<<loc;
 }

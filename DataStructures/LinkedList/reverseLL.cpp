@@ -1,3 +1,4 @@
+//iterative implementation using prev and next pointer
 #include<iostream> 
 using namespace std; 
   

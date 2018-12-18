@@ -1,17 +1,15 @@
-//Construct tree when inorder and preorder traversals are given
 
 #include <stdio.h> 
 #include <stdlib.h> 
   
-/* A binary tree node has data, pointer to left child 
-   and a pointer to right child */
+
 struct node { 
     char data; 
     struct node* left; 
     struct node* right; 
 }; 
   
-/* Prototypes for utility functions */
+
 int search(char arr[], int strt, int end, char value); 
 struct node* newNode(char data); 
   

@@ -54,10 +54,15 @@ void inOrder(Tree* &root){
 
 int main(){
     Tree* root = NULL;
-    for(int i = 0;i <12;i++){
-        insert(root,i);
-    }
+    // for(int i = 0;i <12;i++){
+    //     insert(root,i);
+    // }
+    int arr[] = {4,2,1,3,6,5,7};
 
+    for(int i =0;i<sizeof(arr)/sizeof(arr[0]);i++){
+        insert(root,arr[i]);
+    }
+    
      inOrder(root);
 
     // cout<<root->data;

@@ -1,2 +1,2 @@
-for(auto x:s)
-        cout<<x;
+    // cout<<endl;
+    // cout<<"i val"<<i<< "string length" << s.length();

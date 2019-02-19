@@ -24,7 +24,7 @@ string decode(string encode){
     cout<<endl;
     // for(auto x:conv) cout<<x;
 
-    for(int i =0; i<conv.size() && i+1 < conv.size() && i+2 <conv.size(); ){
+    for(int i =0; i<conv.size() && i+1 < conv.size() && i+2 <=conv.size(); ){
         int temp1 = ((conv[i] * 10) + conv[i+1]);
         int temp2 = ((conv[i] * 100) + (conv[i+1]* 10) + conv[i+2]);
         if(temp1 <=99 && temp1 >= 32){

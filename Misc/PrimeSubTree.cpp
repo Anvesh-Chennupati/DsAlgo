@@ -25,6 +25,12 @@ void printVectors(string name,vector<int> gVector){
     cout<<endl;
 }
 
+vector<int> primeQuery(int n, vector<int> first, vector<int> second, vector<int> values, vector<int> queries) {
+  vector<int> ans;
+
+  return ans;
+}
+
 int main(){
     int n,fn,sn,vn,qn;
     set<int> node;
@@ -33,6 +39,7 @@ int main(){
     vector<int> second;
     vector<int> values;
     vector<int> queries;
+    vector<int> ans;
     cin>>n;
 
     int temp;
@@ -80,6 +87,7 @@ int main(){
     printVectors("Second",second);
     printVectors("Values",values);
     printVectors("Queries",queries);
-
+    ans = primeQuery(n,first,second,values,queries);
+    printVectors("Answers", ans);
     return 0;       
 }

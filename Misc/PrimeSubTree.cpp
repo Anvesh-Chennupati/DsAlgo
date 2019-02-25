@@ -1,20 +1,23 @@
 #include<iostream>
 #include<vector>
 #include<string>
+#include<queue>
 #include<set>
 
 using namespace std;
 
-class PrimeSubTree
-{
-private:
-    int value;
+struct PrimeSubTree 
+{ 
+	int val; 
+	vector<PrimeSubTree *>child; 
+}; 
 
-public:
-    PrimeSubTree(int val){
-
-    }
-};
+PrimeSubTree *newNode(int val) 
+{ 
+	PrimeSubTree *temp = new PrimeSubTree; 
+	temp->val = val; 
+	return temp; 
+} 
 
 void printVectors(string name,vector<int> gVector){
     cout<<name<<": ";
@@ -25,6 +28,33 @@ void printVectors(string name,vector<int> gVector){
     cout<<endl;
 }
 
+void levelOrderTree(PrimeSubTree* root){
+
+    if(root == NULL){
+        cout<<"\nEmpty Tree";
+    }
+
+    queue<PrimeSubTree*> q;
+    q.push(root);
+    while (!q.empty()) 
+    { 
+        int n = q.size(); 
+
+        while (n > 0) 
+        { 
+            PrimeSubTree * p = q.front(); 
+            q.pop(); 
+            cout << p->val << " "; 
+   
+            for (int i=0; i<p->child.size(); i++) 
+                q.push(p->child[i]); 
+            n--; 
+        } 
+   
+        cout << endl;
+    } 
+
+}
 vector<int> primeQuery(int n, vector<int> first, vector<int> second, vector<int> values, vector<int> queries) {
   vector<int> ans;
 
@@ -89,5 +119,19 @@ int main(){
     printVectors("Queries",queries);
     ans = primeQuery(n,first,second,values,queries);
     printVectors("Answers", ans);
-    return 0;       
+    
+    PrimeSubTree *root = newNode(17); 
+	(root->child).push_back(newNode(29)); 
+	(root->child).push_back(newNode(23)); 
+	(root->child[1]->child).push_back(newNode(20)); 
+    (root->child[1]->child).push_back(newNode(11)); 
+    (root->child[1]->child).push_back(newNode(5)); 
+    (root->child[1]->child).push_back(newNode(15));
+    (root->child[1]->child[1]->child).push_back(newNode(3));  
+    (root->child[1]->child[2]->child).push_back(newNode(8));
+    (root->child[1]->child[2]->child[0]->child).push_back(newNode(3));
+    
+
+    levelOrderTree(root);
+
 }

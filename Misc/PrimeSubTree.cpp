@@ -3,6 +3,8 @@
 #include<string>
 #include<queue>
 #include<set>
+#include<stdlib.h>
+#include<unordered_map>
 
 using namespace std;
 
@@ -55,8 +57,38 @@ void levelOrderTree(PrimeSubTree* root){
     } 
 
 }
+
+PrimeSubTree* CreateTree(vector<int> nodes,vector<int> first, vector<int> second, vector<int> values){
+
+    PrimeSubTree* root = NULL;
+    unordered_map<int,int> nodeVal;
+    if(nodes.size()!= first.size()!=second.size()!=values.size()){
+        cout<<"\n Invalid parameters";
+        exit(0);
+    }
+    else{
+        //populating map
+    }
+
+    return root;    
+}
 vector<int> primeQuery(int n, vector<int> first, vector<int> second, vector<int> values, vector<int> queries) {
   vector<int> ans;
+  set<int> node;
+  vector<int> nodes;
+    for(int i=0; i<first.size() || i <second.size();i++){
+        node.insert(first[i]);
+        node.insert(second[i]);
+    }
+
+    set<int>::iterator it =node.begin();
+ 
+    while (it != node.end())
+    {
+        nodes.push_back(*it);
+	    it++;
+    }
+  PrimeSubTree* root = CreateTree(nodes,first,second,values);
 
   return ans;
 }
@@ -99,20 +131,6 @@ int main(){
         temp= 0;
     }
 
-    for(int i=0; i<first.size() || i <second.size();i++){
-        node.insert(first[i]);
-        node.insert(second[i]);
-    }
-
-    set<int>::iterator it =node.begin();
- 
-    while (it != node.end())
-    {
-    nodes.push_back(*it);
-	it++;
-}
-
-    printVectors("Nodes",nodes);
     printVectors("First",first);
     printVectors("Second",second);
     printVectors("Values",values);
@@ -120,18 +138,17 @@ int main(){
     ans = primeQuery(n,first,second,values,queries);
     printVectors("Answers", ans);
     
-    PrimeSubTree *root = newNode(17); 
-	(root->child).push_back(newNode(29)); 
-	(root->child).push_back(newNode(23)); 
-	(root->child[1]->child).push_back(newNode(20)); 
-    (root->child[1]->child).push_back(newNode(11)); 
-    (root->child[1]->child).push_back(newNode(5)); 
-    (root->child[1]->child).push_back(newNode(15));
-    (root->child[1]->child[1]->child).push_back(newNode(3));  
-    (root->child[1]->child[2]->child).push_back(newNode(8));
-    (root->child[1]->child[2]->child[0]->child).push_back(newNode(3));
-    
+    // PrimeSubTree *root = newNode(17); 
+	// (root->child).push_back(newNode(29)); 
+	// (root->child).push_back(newNode(23)); 
+	// (root->child[1]->child).push_back(newNode(20)); 
+    // (root->child[1]->child).push_back(newNode(11)); 
+    // (root->child[1]->child).push_back(newNode(5)); 
+    // (root->child[1]->child).push_back(newNode(15));
+    // (root->child[1]->child[1]->child).push_back(newNode(3));  
+    // (root->child[1]->child[2]->child).push_back(newNode(8));
+    // (root->child[1]->child[2]->child[0]->child).push_back(newNode(3));
 
-    levelOrderTree(root);
+    // levelOrderTree(root);
 
 }

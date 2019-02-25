@@ -267,7 +267,7 @@ vector<int> primeQuery(int n, vector<int> first, vector<int> second, vector<int>
     levelOrderTree(root);
 
   for(int i =0; i< queries.size(); i++){
-      ans.push_back(0);
+      ans.push_back(countPrimes(findNode(root,nodeVal.at(queries[i]))));
   }
 
   return ans;

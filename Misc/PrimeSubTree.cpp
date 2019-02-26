@@ -31,9 +31,7 @@ void printVectors(string name,vector<int> gVector){
 }
 
 bool isPrime(int n){
-    if (n <= 1)  return false; 
-  
-    // Check from 2 to n-1 
+    if (n <= 1)  return false;  
     for (int i=2; i<n; i++) 
         if (n%i == 0) 
             return false; 
@@ -96,13 +94,15 @@ void levelOrderTree(PrimeSubTree* root){
 }
 
 PrimeSubTree* findNode(PrimeSubTree* root, int val){
+    PrimeSubTree* node;
     if(root == NULL){
         cout<<"\nEmpty Tree";
         exit(0);
     }
     else{
         if(root->val == val){
-            return root;
+            node = root;
+            return node;
         }
         else{
             queue<PrimeSubTree*> q;
@@ -113,7 +113,8 @@ PrimeSubTree* findNode(PrimeSubTree* root, int val){
                     PrimeSubTree * p = q.front();
                     q.pop();
                     if(p->val == val){
-                        return p;
+                        node = p;
+                        return node;
                     }
                     else{
                         for (int i=0; i<p->child.size(); i++)
@@ -126,62 +127,58 @@ PrimeSubTree* findNode(PrimeSubTree* root, int val){
         }
 
     }
+    return node;
 }
 
 PrimeSubTree* CreateTree(unordered_map<int,int> nodeVal,vector<int> nodes,vector<int> first, vector<int> second, vector<int> values){
 
     PrimeSubTree* root = NULL;
-    // unordered_map<int,int> nodeVal;
     if((first.size()!=second.size()) || (nodes.size()!=values.size())){
         cout<<"\n"<<nodes.size();
         cout<<"\n Invalid parameters";
         exit(0);
     }
     else{
-        //populating map
-        // for(int i=0;i <nodes.size();i++){
-        //     // cout<<"\n node:value "<<nodes[i]<<" : "<<values[i];
-        //     nodeVal.insert({nodes[i],values[i]});
-        // }
-        // for(auto x:nodeVal){
-        //     // cout<<"\nfirst "<<x.first<<" second "<<x.second;
-        // }
+        
         queue<int> check;
         check.push(nodes[0]);
-        while(!check.empty()){
+        cout<<"\n initial queue front: "<<check.front()<<endl;
+
+        while(!check.empty() || first.size()!=0){
+            if(check.empty()){
+                check.push(first[0]);
+            }
             if(root == NULL){
                 int numb = check.front();
+                // cout<<"\n queue front: "<<check.front()<<endl;
                 check.pop();
                 root = newNode(nodeVal.at(numb));
                 for(int j=0; j<first.size(); j++){
+                    cout<<"\n queue front: "<<check.front()<<endl;
                     if(first[j] == numb){
                         root->child.push_back(newNode(nodeVal.at(second[j])));
                         check.push(second[j]);
                         first.erase(first.begin()+j);
-                        // for(auto x: first)
-                        //     cout<<" "<< x;
-
-                        // cout<<"\n";                            
+                        for(auto x: first)
+                            cout<<" "<< x;
+                        cout<<"\n";                     
                         second.erase(second.begin()+j);
-                        // for(auto x: second)
-                        //     cout<<" "<< x;
-
-                        // cout<<"\n";
+                        for(auto x: second)
+                            cout<<" "<< x;
+                        cout<<"\n";                        
                         j=0;                                                 
                     }
                     if(second[j] == numb){
                         root->child.push_back(newNode(nodeVal.at(first[j])));
                         check.push(first[j]);
                         first.erase(first.begin()+j);
-                        // for(auto x: first)
-                        //     cout<<" "<< x;
-
-                        // cout<<"\n";                         
+                        for(auto x: first)
+                            cout<<" "<< x;
+                        cout<<"\n";                                                  
                         second.erase(second.begin()+j);
-                        // for(auto x: second)
-                        //     cout<<" "<< x;
-
-                        // cout<<"\n";
+                        for(auto x: second)
+                            cout<<" "<< x;
+                        cout<<"\n";                         
                         j=0;                         
                     }                                        
                 }
@@ -191,53 +188,36 @@ PrimeSubTree* CreateTree(unordered_map<int,int> nodeVal,vector<int> nodes,vector
                 check.pop();
                 PrimeSubTree* temp = findNode(root, nodeVal.at(numb));
                 for(int j=0; j<first.size(); j++){
+                    cout<<"\n queue front: "<<check.front()<<endl;
                     if(first[j] == numb){
                         temp->child.push_back(newNode(nodeVal.at(second[j])));
                         check.push(second[j]);
                         first.erase(first.begin()+j);
-                        // for(auto x: first)
-                        //     cout<<" "<< x;
-                        // cout<<endl;                        
-                        second.erase(second.begin()+j); 
-                        // for(auto x: second)
-                        //     cout<<" "<< x;   
-                        // cout<<endl;  
+                        for(auto x: first)
+                            cout<<" "<< x;
+                        cout<<"\n";                                                
+                        second.erase(second.begin()+j);
+                        for(auto x: second)
+                            cout<<" "<< x;
+                        cout<<"\n";                            
                         j=0;                                          
                     }
                     if(second[j] == numb){
                         temp->child.push_back(newNode(nodeVal.at(first[j])));
                         check.push(first[j]);
                         first.erase(first.begin()+j);
-                        // for(auto x: first)
-                        //     cout<<" "<< x;
-
-                        // cout<<endl;                                                                                  
+                        for(auto x: first)
+                            cout<<" "<< x;
+                        cout<<"\n";                                                                                                           
                         second.erase(second.begin()+j);
-                        // for(auto x: second)
-                        //     cout<<" "<< x;    
-                        // cout<<endl;
+                        for(auto x: second)
+                            cout<<" "<< x;
+                        cout<<"\n";                         
                         j=0;                                           
                     }                    
                 }
             }
         }
-
-
-
-        // for(int i =0; i< nodes.size();i++){
-        //     if(root == NULL){
-        //         // cout<<nodeVal.at(nodes[i])<<" here \n";
-        //         root = newNode(nodeVal.at(nodes[i]));
-        //         for(int j=0; j<first.size(); j++){
-        //             if(first[j] == nodes[i]){
-        //                 root->child.push_back(newNode(nodeVal.at(second[j])));
-        //             }
-        //         }
-        //     }
-        //     else{
-        //         PrimeSubTree* temp = findNode()
-        //     }
-        // }
     }
 
     return root;    
@@ -260,7 +240,6 @@ vector<int> primeQuery(int n, vector<int> first, vector<int> second, vector<int>
 	    it++;
     }
     for(int i=0;i <nodes.size();i++){
-        // cout<<"\n node:value "<<nodes[i]<<" : "<<values[i];
         nodeVal.insert({nodes[i],values[i]});
         }
     PrimeSubTree* root = CreateTree(nodeVal,nodes,first,second,values);
@@ -318,17 +297,4 @@ int main(){
     ans = primeQuery(n,first,second,values,queries);
     printVectors("Answers", ans);
     
-    // PrimeSubTree *root = newNode(17); 
-	// (root->child).push_back(newNode(29)); 
-	// (root->child).push_back(newNode(23)); 
-	// (root->child[1]->child).push_back(newNode(20)); 
-    // (root->child[1]->child).push_back(newNode(11)); 
-    // (root->child[1]->child).push_back(newNode(5)); 
-    // (root->child[1]->child).push_back(newNode(15));
-    // (root->child[1]->child[1]->child).push_back(newNode(3));  
-    // (root->child[1]->child[2]->child).push_back(newNode(8));
-    // (root->child[1]->child[2]->child[0]->child).push_back(newNode(3));
-
-    // levelOrderTree(root);
-
 }

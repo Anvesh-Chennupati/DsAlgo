@@ -3,5 +3,6 @@
         "iostream": "cpp",
         "ostream": "cpp",
         "queue": "cpp"
-    }
+    },
+    "python.linting.pylintEnabled": true
 }

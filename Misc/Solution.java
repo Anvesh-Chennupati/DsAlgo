@@ -2,24 +2,41 @@
 
 import java.util.*;
 import java.io.*;
-public class Solution {
-  public static void main(String[] args) {
-    // Scanner in = new Scanner(new BufferedReader(new InputStreamReader(System.in)));
-    // int t = in.nextInt();  // Scanner has functions to read ints, longs, strings, chars, etc.
-    // for (int i = 1; i <= t; ++i) {
-    //   int n = in.nextInt();
-    //   int m = in.nextInt();
-    //   System.out.println("Case #" + i + ": " + (n + m) + " " + (n * m));
+class Solution {
+  public void longestPalindrome(String s) {
+      if (s == null || s.length() < 1) System.out.println("");
+      int start = 0, end = 0;
+      for (int i = 0; i < s.length(); i++) {
+          int len1 = expandAroundCenter(s, i, i);
+          int len2 = expandAroundCenter(s, i, i + 1);
+          int len = Math.max(len1, len2);
+          System.out.println("i: " + i + " i+1: " + (i+1));
+          System.out.println(len1);
+          System.out.println(len2);
+          System.out.println(len);
+          if (len > end - start) {
+              start = i - (len - 1) / 2;
+              System.out.println(start);
+              end = i + len / 2;
+              System.out.println(end);
+          }
+      }
 
-    // }
-
-
+      System.out.println(s.substring(start, end + 1));
   }
-  class Processor{
-    int total;
-    int count;
-    double avg;
-    
-
+      
+  
+  private int expandAroundCenter(String s, int left, int right) {
+      int L = left, R = right;
+      while (L >= 0 && R < s.length() && s.charAt(L) == s.charAt(R)) {
+          L--;
+          R++;
+      }
+      return R - L - 1;
   }
-}
+
+  public static void main(String[] args){
+    Solution s1 = new Solution();
+    s1.longestPalindrome("abba");
+  }
+  }

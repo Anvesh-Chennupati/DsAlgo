@@ -26,7 +26,7 @@ int main()
     mt19937 mt_rand(time(0));
     uniform_int_distribution<> distr(1, 45);
 
-    for (int i = 0; i < 5; i++)
+    for (int i = 0; i < 9; i++)
     {
         for(int j = 0; j < 15; j++){
             productsList.push_back(Products(i,distr(mt_rand)));

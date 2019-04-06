@@ -49,7 +49,7 @@ int printTour(struct petrolPump arr[], int n)
 // Driver program to test above functions
 int main()
 {
-    struct petrolPump arr[] = {{6, 4}, {3, 6}, {7, 3}};
+    struct petrolPump arr[] = {{4, 6}, {6, 5}, {7, 3}, {4, 5}};
 
     int n = sizeof(arr) / sizeof(arr[0]);
     int start = printTour(arr, n);

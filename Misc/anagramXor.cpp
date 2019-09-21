@@ -20,3 +20,5 @@ int main(int argc, char** argv){
     isAnagram(s1,s2) ? cout<<"Yes" :cout<<"No";
     return 0;
 }
+
+// doesnt work logic incorrect should fix it

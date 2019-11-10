@@ -70,5 +70,6 @@
         "typeinfo": "cpp",
         "valarray": "cpp"
     },
-    "python.linting.pylintEnabled": true
+    "python.linting.pylintEnabled": true,
+    "python.pythonPath": "C:\\Users\\anves\\AppData\\Local\\Programs\\Python\\Python37-32\\python.exe"
 }

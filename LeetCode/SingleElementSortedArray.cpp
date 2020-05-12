@@ -36,6 +36,8 @@ int main(){
     Solution s;
     vector<int> t1{1,1,2,2,3,3,4,8,8};
     vector<int> t2{3,3,7,7,10,11,11};
+    vector<int> t3{1,2,2};
     cout<<s.singleNonDuplicate(t1)<<endl;
     cout<<s.singleNonDuplicate(t2)<<endl;
+    cout<<s.singleNonDuplicate(t3)<<endl;
 }

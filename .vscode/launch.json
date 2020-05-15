@@ -5,6 +5,13 @@
     "version": "0.2.0",
     "configurations": [
         {
+            "type": "java",
+            "name": "CodeLens (Launch) - Trie",
+            "request": "launch",
+            "mainClass": "Trie",
+            "projectName": "DsAlgo_c1e83937"
+        },
+        {
             "name": "(gdb) Launch",
             "type": "cppdbg",
             "request": "launch",
@@ -41,12 +48,12 @@
                 }
             ]
         },
-    {
-        "name": "(Windows) Attach",
-        "type": "cppvsdbg",
-        "request": "attach",
-        "processId": "${command:pickProcess}"
-    },
+        {
+            "name": "(Windows) Attach",
+            "type": "cppvsdbg",
+            "request": "attach",
+            "processId": "${command:pickProcess}"
+        },
         {
             "name": "g++.exe - Build and debug active file",
             "type": "cppdbg",
